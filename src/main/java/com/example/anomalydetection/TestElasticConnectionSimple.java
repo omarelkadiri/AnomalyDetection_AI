@@ -1,4 +1,4 @@
-package com.example.anomalydetection;
+/*package com.example.anomalydetection;
 
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
@@ -79,4 +79,4 @@ public class TestElasticConnectionSimple {
             e.printStackTrace();
         }
     }
-}
+}*/
