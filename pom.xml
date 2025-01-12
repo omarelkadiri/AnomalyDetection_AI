@@ -73,12 +73,22 @@
             <version>2.0.1</version>
         </dependency>
 
-        <!--  Weka  -->
+        <!--  Weka
         <dependency>
             <groupId>nz.ac.waikato.cms.weka</groupId>
             <artifactId>weka-dev</artifactId>
             <version>3.9.6</version>
         </dependency>
+        -->
+
+        <!-- Weka Core -->
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>weka-stable</artifactId>
+            <version>3.8.6</version>
+        </dependency>
+
+
         <!--  Logging  -->
         <dependency>
             <groupId>org.slf4j</groupId>

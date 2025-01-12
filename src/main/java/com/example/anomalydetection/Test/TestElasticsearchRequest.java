@@ -1,6 +1,6 @@
 package com.example.anomalydetection.Test;
 
-import com.example.anomalydetection.ElasticsearchClientSingleton;
+import com.example.anomalydetection.Elastic.ElasticsearchClientSingleton;
 
 public class TestElasticsearchRequest {
     public static void main(String[] args) {

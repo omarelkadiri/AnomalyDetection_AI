@@ -1,11 +1,9 @@
-package com.example.anomalydetection;
+package com.example.anomalydetection.Elastic;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.elasticsearch.client.Request;
