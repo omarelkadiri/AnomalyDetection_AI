@@ -12,13 +12,20 @@ classDiagram
         +updateViews()
     }
     
-    class ElasticsearchService {
-        -ElasticsearchClientSingleton esClient
-        -ObjectMapper mapper
-        +fetchRecentLogs()
-        -buildTimeRangeQuery()
-        -buildMetricQuery()
-        +close()
+ class ElasticsearchService {
+        -ElasticsearchClientSingleton esClientSingleton
+        +searchLogsFromLastMinute(): String
+        +close(): void
+    }
+
+    class ElasticsearchClientSingleton {
+        -static ElasticsearchClientSingleton instance
+        -ElasticsearchClient client
+        -RestClient restClient
+        +getInstance(): ElasticsearchClientSingleton
+        +getClient(): ElasticsearchClient
+        +executeSearchRequest(String endpoint, String jsonQuery): String
+        +close(): void
     }
     
     class PretrainedModelService {
@@ -101,6 +108,7 @@ classDiagram
     UIController --> DashboardView
     UIController --> AnomalyDetectionService
     AnomalyDetectionService --> ElasticsearchService
+    ElasticsearchService --> ElasticsearchClientSingleton
     AnomalyDetectionService --> PretrainedModelService
     AnomalyDetectionService --> AlertManager
     PretrainedModelService --> FeatureMapper
