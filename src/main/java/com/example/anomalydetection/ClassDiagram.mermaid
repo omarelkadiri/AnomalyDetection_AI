@@ -29,20 +29,15 @@ classDiagram
     }
     
     class PretrainedModelService {
-        -IsolationForestModel model
-        -StandardScaler scaler
-        -FeatureMapper featureMapper
+        - String DetectionModelScript
+        - ObjectMapper objectMapper
+        - Class PythonPredictionResult
         +loadModel()
         +predictAnomaly(LogData log)
         +batchPredict(List~LogData~ logs)
     }
     
-    class FeatureMapper {
-        -Map~String,Object~ mappings
-        +loadMappings()
-        +transformLog(LogEntry log)
-        +convertIpToNumeric(String ip)
-    }
+
 
     class AlertManager {
         -List~AlertObserver~ observers
@@ -111,7 +106,6 @@ classDiagram
     ElasticsearchService --> ElasticsearchClientSingleton
     AnomalyDetectionService --> PretrainedModelService
     AnomalyDetectionService --> AlertManager
-    PretrainedModelService --> FeatureMapper
     AlertManager --> "0..*" AlertObserver
     DashboardView ..|> AlertObserver
     EmailAlertObserver ..|> AlertObserver
