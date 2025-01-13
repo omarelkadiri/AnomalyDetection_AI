@@ -1,0 +1,21 @@
+{
+  "total_samples": 32035,
+  "anomalies_detected": 3204,
+  "anomaly_percentage": 10.001560792882785,
+  "feature_means": {
+    "source_ip_num": 35577449125.62622,
+    "dest_ip_num": 89385578994.90845,
+    "source_port": 16503.584891524893,
+    "dest_port": 163.57708756048072,
+    "bytes": 79.79878258155142,
+    "direction_num": 0.06805056968940222
+  },
+  "feature_stds": {
+    "source_ip_num": 63908834547.37282,
+    "dest_ip_num": 82689702692.29971,
+    "source_port": 21455.675327973677,
+    "dest_port": 1289.736448377741,
+    "bytes": 97.12991773927706,
+    "direction_num": 0.2680489024179013
+  }
+}

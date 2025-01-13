@@ -5,21 +5,18 @@ module com.example.anomalydetection {
     requires org.apache.httpcomponents.httpasyncclient;
     requires elasticsearch.java;
     requires jakarta.json;
-    //requires elasticsearch.rest.high.level.client;
-    //requires  org. apache. httpcomponents. httpclient;
-    //requires elasticsearch;
-    //requires org.elasticsearch.client;
     requires elasticsearch.rest.client;
     requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
     requires weka.stable;
 
 
-
-    opens com.example.anomalydetection to javafx.fxml;
+    opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;
     exports com.example.anomalydetection;
     exports com.example.anomalydetection.Test;
     opens com.example.anomalydetection.Test to javafx.fxml;
     exports com.example.anomalydetection.Elastic;
     opens com.example.anomalydetection.Elastic to javafx.fxml;
+    exports com.example.anomalydetection.Structure to com.fasterxml.jackson.databind;
+
 }

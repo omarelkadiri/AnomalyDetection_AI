@@ -18,14 +18,12 @@ public class ElasticsearchService {
         String jsonQuery = """
                 {
                     "_source": [
-                        "source.ip",
-                        "destination.ip",
-                        "source.port",
-                        "destination.port",
-                        "protocol.Transport",
-                        "network.bytes",
-                        "direction",
-                        "action"
+                         "source.ip",
+                         "destination.ip",
+                         "source.port",
+                         "destination.port",
+                         "network.bytes",
+                         "direction"
                     ],
                     "query": {
                         "range": {

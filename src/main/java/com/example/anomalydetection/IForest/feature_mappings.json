@@ -1,0 +1,14 @@
+{
+  "direction_mapping": {
+    "out": 0,
+    "in": 1
+  },
+  "feature_names": [
+    "source_ip_num",
+    "dest_ip_num",
+    "source_port",
+    "dest_port",
+    "bytes",
+    "direction_num"
+  ]
+}
