@@ -18,5 +18,7 @@ module com.example.anomalydetection {
     exports com.example.anomalydetection.Elastic;
     opens com.example.anomalydetection.Elastic to javafx.fxml;
     exports com.example.anomalydetection.Structure to com.fasterxml.jackson.databind;
+    exports com.example.anomalydetection.IForest;
+    opens com.example.anomalydetection.IForest to com.fasterxml.jackson.databind, javafx.fxml;
 
 }

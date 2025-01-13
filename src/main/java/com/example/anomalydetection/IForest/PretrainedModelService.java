@@ -1,4 +1,4 @@
-package com.example.anomalydetection;
+package com.example.anomalydetection.IForest;
 
 
 import com.example.anomalydetection.Structure.AnomalyResult;
@@ -20,7 +20,8 @@ public class PretrainedModelService {
 
     public List<AnomalyResult> batchPredict(List<LogEntry> logs) throws IOException {
         // Convertir les logs en JSON
-        String logsJson = objectMapper.writeValueAsString(logs);
+        List<LogEntry> logsIpv4 = IPv6Filter.filterOutIPv6Logs(logs);
+        String logsJson = objectMapper.writeValueAsString(logsIpv4);
 
         // Préparer la commande Python
         ProcessBuilder pb = new ProcessBuilder("python3", PYTHON_SCRIPT_PATH);
@@ -89,7 +90,7 @@ public class PretrainedModelService {
 
     public AnomalyResult predictAnomaly(LogEntry log) throws IOException {
         List<LogEntry> singleLog = List.of(log);
-        List<AnomalyResult> results = batchPredict(singleLog);
+        List<AnomalyResult> results = batchPredict(IPv6Filter.filterOutIPv6Logs(singleLog));
         return results.get(0);
     }
 

@@ -1,5 +1,8 @@
 package com.example.anomalydetection.Structure;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LogEntry {
     private String source_ip;
     private String dest_ip;
