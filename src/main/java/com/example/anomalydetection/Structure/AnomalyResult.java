@@ -9,8 +9,7 @@ public class AnomalyResult {
     private LocalDateTime timestamp;
 
     // Constructeur
-    public AnomalyResult(LogEntry logEntry, boolean isAnomaly, double anomalyScore,
-                         LocalDateTime timestamp) {
+    public AnomalyResult(LogEntry logEntry, boolean isAnomaly, double anomalyScore, LocalDateTime timestamp) {
         this.logEntry = logEntry;
         this.isAnomaly = isAnomaly;
         this.anomalyScore = anomalyScore;

@@ -35,9 +35,9 @@ public class IPv6Filter {
             }
         }
 
-        if (filteredCount > 0) {
-            System.out.println("Logs IPv6 filtrés: " + filteredCount);
-        }
+      //  if (filteredCount > 0) {
+      //      System.out.println("Logs IPv6 filtrés: " + filteredCount);
+      //  }
 
         return ipv4Logs;
     }

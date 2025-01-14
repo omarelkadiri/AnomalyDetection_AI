@@ -9,7 +9,7 @@ module com.example.anomalydetection {
     requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
     requires weka.stable;
-
+    requires java.mail;
 
     opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;
     exports com.example.anomalydetection;

@@ -58,8 +58,6 @@
             <version>8.17.0</version>
         </dependency>
 
-
-
         <!--  Jakarta JSON Processing API  -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -72,22 +70,6 @@
             <artifactId>jakarta.json-api</artifactId>
             <version>2.0.1</version>
         </dependency>
-
-        <!--  Weka
-        <dependency>
-            <groupId>nz.ac.waikato.cms.weka</groupId>
-            <artifactId>weka-dev</artifactId>
-            <version>3.9.6</version>
-        </dependency>
-        -->
-
-        <!-- Weka Core -->
-        <dependency>
-            <groupId>nz.ac.waikato.cms.weka</groupId>
-            <artifactId>weka-stable</artifactId>
-            <version>3.8.6</version>
-        </dependency>
-
 
         <!--  Logging  -->
         <dependency>
@@ -106,6 +88,12 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
 
     </dependencies>
