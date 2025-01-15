@@ -52,7 +52,7 @@ public class Alert {
         LogEntry log = anomaly.getLogEntry();
         return String.format(
                 "Alert{severity=%s, timestamp=%s, source=%s:%d, destination=%s:%d, " +
-                        "anomalyScore=%.3f, description='%s', acknowledged=%s}",
+                        "anomalyScore=%.3f, acknowledged=%s}",
                 severity, timestamp, log.getSource_ip(), log.getSource_port(),
                 log.getDest_ip(), log.getDest_port(), anomaly.getAnomalyScore(),
                 description, acknowledged

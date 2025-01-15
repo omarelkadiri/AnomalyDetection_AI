@@ -8,7 +8,6 @@ module com.example.anomalydetection {
     requires elasticsearch.rest.client;
     requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
-    requires weka.stable;
     requires java.mail;
 
     opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;

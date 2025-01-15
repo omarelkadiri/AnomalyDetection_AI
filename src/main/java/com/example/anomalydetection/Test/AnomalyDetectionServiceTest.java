@@ -1,9 +1,6 @@
 package com.example.anomalydetection.Test;
 
-import com.example.anomalydetection.Alerting.Alert;
-import com.example.anomalydetection.Alerting.AlertManager;
-import com.example.anomalydetection.Alerting.AlertObserver;
-import com.example.anomalydetection.Alerting.EmailAlertObserver;
+import com.example.anomalydetection.Alerting.*;
 import com.example.anomalydetection.Elastic.ElasticsearchService;
 import com.example.anomalydetection.IForest.PretrainedModelService;
 import com.example.anomalydetection.Service.AnomalyDetectionService;
@@ -36,11 +33,13 @@ public class AnomalyDetectionServiceTest {
 
             // Configuration de l'observateur d'email
             EmailAlertObserver emailObserver = new EmailAlertObserver();
+            SlackAlertObserver slackObserver = new SlackAlertObserver();
 
             // Ajout d'un observateur de test pour capturer les alertes
             TestAlertObserver testObserver = new TestAlertObserver();
             alertManager.attach(emailObserver);
             alertManager.attach(testObserver);
+            alertManager.attach(slackObserver);
 
             // Création du service de détection
             AnomalyDetectionService detectionService = new AnomalyDetectionService(

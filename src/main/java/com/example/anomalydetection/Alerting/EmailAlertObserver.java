@@ -5,9 +5,17 @@ import javax.mail.internet.*;
 import java.util.Properties;
 
 public class EmailAlertObserver implements AlertObserver {
-    private static final String EMAIL_TO = "to@gmail.com";
-    private static final String EMAIL_FROM = "from@gmail.com";
-    private static final String EMAIL_PASSWORD = "pass";
+    private  String EMAIL_TO;
+    private  String EMAIL_FROM = "__@gmail.com";
+    private  String EMAIL_PASSWORD = "__";
+
+    public EmailAlertObserver() {
+        EMAIL_TO = "__@gmail.com";
+    }
+
+    public EmailAlertObserver(String EMAIL_TO) {
+        this.EMAIL_TO = EMAIL_TO;
+    }
 
     @Override
     public void update(Alert alert) {

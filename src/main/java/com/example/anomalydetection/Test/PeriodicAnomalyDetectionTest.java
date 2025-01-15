@@ -1,10 +1,7 @@
 package com.example.anomalydetection.Test;
 
 
-import com.example.anomalydetection.Alerting.Alert;
-import com.example.anomalydetection.Alerting.AlertManager;
-import com.example.anomalydetection.Alerting.AlertObserver;
-import com.example.anomalydetection.Alerting.EmailAlertObserver;
+import com.example.anomalydetection.Alerting.*;
 import com.example.anomalydetection.Elastic.ElasticsearchService;
 import com.example.anomalydetection.Service.AnomalyDetectionService;
 import com.example.anomalydetection.IForest.PretrainedModelService;
@@ -21,7 +18,9 @@ public class PeriodicAnomalyDetectionTest implements AlertObserver {
 
         // Configuration des observateurs
         EmailAlertObserver emailObserver = new EmailAlertObserver();
+        SlackAlertObserver slackObserver = new SlackAlertObserver();
         alertManager.attach(emailObserver);
+        alertManager.attach(slackObserver);
         alertManager.attach(this); // Ajouter this comme observateur pour le monitoring
 
         // Création du service de détection
@@ -71,6 +70,9 @@ public class PeriodicAnomalyDetectionTest implements AlertObserver {
     @Override
     public void update(Alert alert) {
         // Afficher les détails de l'alerte détectée
+        if (alert.getAnomaly().getAnomalyScore() > 6)
+            return;
+
         System.out.println("\n=== Nouvelle Alerte Détectée ===");
         System.out.println("Sévérité: " + alert.getSeverity());
 
