@@ -71,7 +71,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="186.0" HBox.hgrow="ALWAYS">
          <children>
-            <ComboBox fx:id="stateComboBox" prefHeight="37.0" prefWidth="165.0" promptText="State" styleClass="comboBox" />
+            <ComboBox fx:id="stateComboBox" onAction="#handleState" prefHeight="37.0" prefWidth="165.0" promptText="State" styleClass="comboBox" />
          </children>
       </HBox>
    </children>

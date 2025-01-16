@@ -61,6 +61,6 @@ public class Alert {
 
     @Override
     public String toString() {
-        return getDetails();
+        return null;
     }
 }

@@ -34,7 +34,8 @@ public class OverviewController implements Initializable, AlertObserver {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        alerts = TestUI.getAlerts();
+        // alerts = TestUI.getAlerts();
+        alerts = generateFakeAlerts();
         filteredAlerts = getFilteredAlerts();
         System.out.println(filteredAlerts.values());
         displayStatus();
@@ -62,6 +63,7 @@ public class OverviewController implements Initializable, AlertObserver {
     }
 
     private void displayAlerts(List<Alert> filteredAlerts) {
+        alertLayout.getChildren().clear();
         filteredAlerts.forEach(alert -> {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/alert-item.fxml"));
             try {
@@ -74,6 +76,7 @@ public class OverviewController implements Initializable, AlertObserver {
                 throw new RuntimeException(e);
             }
         });
+
     }
 
     private Map<String, List<Alert>> getFilteredAlerts() {
@@ -116,7 +119,6 @@ public class OverviewController implements Initializable, AlertObserver {
     @FXML
     void handleSeverityFilter(ActionEvent event) {
         String selectedItem = filterBySeverity.getSelectionModel().getSelectedItem();
-        System.out.println(selectedItem.toString());
         String severityKey = switch (selectedItem) {
             case "ALL", "CRITICAL", "HIGH", "MEDIUM", "LOW" -> selectedItem;
             default -> "ALL";
@@ -150,4 +152,21 @@ public class OverviewController implements Initializable, AlertObserver {
             status.setStyle("-fx-text-fill: green");
         }
     }
+
+    private  List<Alert> generateFakeAlerts() {
+        List<Alert> alerts = new ArrayList<>();
+
+        alerts.add(new Alert(null, Alert.Severity.LOW, "CPU usage slightly above normal."));
+        alerts.add(new Alert(null, Alert.Severity.MEDIUM, "Memory usage reaching 70%."));
+        alerts.add(new Alert(null, Alert.Severity.HIGH, "Multiple failed login attempts detected."));
+        alerts.add(new Alert(null, Alert.Severity.CRITICAL, "Unexpected server downtime detected."));
+        alerts.add(new Alert(null, Alert.Severity.LOW, "Network latency is slightly increased."));
+        alerts.add(new Alert(null, Alert.Severity.HIGH, "Unusual traffic detected on port 8080."));
+        alerts.add(new Alert(null, Alert.Severity.MEDIUM, "Disk usage exceeds 80%."));
+        alerts.add(new Alert(null, Alert.Severity.CRITICAL, "Database connection pool is exhausted."));
+
+        return alerts;
+    }
+
+
 }

@@ -23,7 +23,7 @@
                         <Font size="40.0" />
                      </font>
                   </Label>
-                  <Label fx:id="status" prefHeight="120.0" prefWidth="106.0" text="Good" textFill="WHITE">
+                  <Label fx:id="status" prefHeight="89.0" prefWidth="191.0" text="Warning" textFill="WHITE">
                      <font>
                         <Font size="40.0" />
                      </font>

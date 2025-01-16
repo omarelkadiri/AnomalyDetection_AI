@@ -1,6 +1,7 @@
 package com.example.anomalydetection.viewController;
 
 import com.example.anomalydetection.Alerting.Alert;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,6 +55,7 @@ public class AlertItemController {
             case HIGH -> severityIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/view/images/alert_high.png"))));
             case CRITICAL -> severityIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/view/images/alert_critical.png"))));
         };
+        stateComboBox.getItems().addAll("TREAT", "NOT TREAT");
         //long secondsDifference = Duration.between(startTime, alert.getTimestamp()).getSeconds();
         //lastSeen.setText(Long.toString(secondsDifference));
         // stateComboBox.s
@@ -76,6 +78,18 @@ public class AlertItemController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void handleState(ActionEvent event) {
+        String selectedItem = stateComboBox.getSelectionModel().getSelectedItem();
+        String severityKey = switch (selectedItem) {
+            case "TREAT", "NOT TREAT" -> selectedItem;
+            default -> "ALL";
+        };
+        if (severityKey.equals("TREAT")) {
+            alert.setAcknowledged(true);
+        } else alert.setAcknowledged(false);
     }
 
 }
