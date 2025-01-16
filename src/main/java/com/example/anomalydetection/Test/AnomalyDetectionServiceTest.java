@@ -31,12 +31,10 @@ public class AnomalyDetectionServiceTest {
             ElasticsearchService esService = new ElasticsearchService();
             AlertManager alertManager = new AlertManager();
 
-            // Configuration de l'observateur d'email
             EmailAlertObserver emailObserver = new EmailAlertObserver();
             SlackAlertObserver slackObserver = new SlackAlertObserver();
-
-            // Ajout d'un observateur de test pour capturer les alertes
             TestAlertObserver testObserver = new TestAlertObserver();
+
             alertManager.attach(emailObserver);
             alertManager.attach(testObserver);
             alertManager.attach(slackObserver);

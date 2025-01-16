@@ -1,0 +1,162 @@
+.gradient-background {
+-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #000000, #333333);
+}
+
+.line-color {
+    -fx-background-color: #FFF
+}
+
+.container {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 10;
+}
+
+.container1 {
+    -fx-background-radius: 10;
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0, 0.0, 0.0, 10.0);
+}
+
+.button1 {
+-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #000000);
+    -fx-opacity: 70%;
+    -fx-border-color: darkRed;
+    -fx-border-width: 1px;
+    -fx-text-fill: white;           /* White text */
+    -fx-font-size: 20px;            /* Font size */
+    -fx-padding: 10px 20px;         /* Padding */
+    -fx-border-radius: 20px;         /* Rounded corners */
+    -fx-background-radius: 20px;
+}
+
+.darkBlueButton {
+    -fx-background-color: linear-gradient(to right, #00008b, #0000cd);
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.deleteBtn {
+    -fx-background-color: darkRed;
+    -fx-padding: 10px 20px;         /* Padding */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-background-radius: 5px;
+}
+
+.updateBtn {
+    -fx-background-color: darkGreen;
+    -fx-opacity: 70%;
+    -fx-border-color: darkGreen;
+    -fx-padding: 10px 20px;         /* Padding */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1E3A8B, #60A5F0);
+    -fx-opacity: 80%;
+}
+
+.darkBlueButton:hover {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1E3A8B, #60A5F0);
+    -fx-opacity: 80%;
+}
+
+.button:pressed {
+    -fx-opacity: 50%; /* Even darker green when pressed */
+}
+
+.darkBlueButton:pressed {
+    -fx-opacity: 50%; /* Even darker green when pressed */
+}
+
+.comboBox {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #000000);
+    -fx-text-fill: white!important;
+-fx-font-size: 20px;
+    -fx-padding: 5;
+-fx-background-radius: 5;
+}
+
+.transparent {
+    -fx-background-color: transparent;
+}
+
+/* Custom table view */
+.table-view {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.table-view .cell {
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 5px;
+}
+
+/* Chart properties */
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+
+/* Styling for the TextField */
+.text-field {
+    -fx-background-color: #ffffff; /* White background for the input */
+    -fx-text-fill: #333; /* Dark gray text for contrast */
+    -fx-border-color: #007bff; /* Blue border matching the theme */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-background-radius: 5px; /* Match border radius */
+    -fx-padding: 10px; /* Comfortable padding */
+    -fx-font-size: 16px; /* Readable font size */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0.2, 0, 2); /* Subtle shadow effect */
+}
+
+/* Placeholder text styling */
+.text-field:focused {
+    -fx-border-color: darkBlue; /* White border on focus */
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.4), 4, 0.4, 0, 2); /* Highlighted glow effect */
+}
+
+/* Disabled state styling */
+.text-field:disabled {
+    -fx-background-color: #cccccc; /* Light gray background */
+    -fx-border-color: #666666; /* Muted border color */
+    -fx-text-fill: #777777; /* Dimmed text color */
+}
+
+.vbox-card {
+    -fx-background-color: black;
+    -fx-background-radius: 12; /* Rounded corners */
+    -fx-padding: 16; /* Inner spacing */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 6, 0.1, 0, 4); /* Soft shadow */
+    -fx-border-radius: 5; /* Match the background radius */
+    -fx-border-color: transparent; /* Optional border customization */
+}
+
+.vbox-revers {
+    -fx-node-orientation: bottom-to-top;
+}
+
+
+
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="button1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anomalydetection.viewController.AlertDetailsController">
+   <children>
+      <VBox layoutY="-5.0" prefHeight="400.0" prefWidth="447.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="447.0">
+               <children>
+                  <Label text="Alert details" textFill="WHITE">
+                     <font>
+                        <Font name="Cantarell Regular" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Text fx:id="details" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="asdfasdlfkjaldskfjaòldskfjaòsdlkfjaòsldfkjasòldfkajsòdlfkjasdòlfk" wrappingWidth="476.7294921875">
+               <font>
+                  <Font name="Cantarell Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

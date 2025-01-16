@@ -8,6 +8,7 @@ module com.example.anomalydetection {
     requires elasticsearch.rest.client;
     requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
+    //requires weka.stable;
     requires java.mail;
 
     opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;
@@ -18,6 +19,8 @@ module com.example.anomalydetection {
     opens com.example.anomalydetection.Elastic to javafx.fxml;
     exports com.example.anomalydetection.Structure to com.fasterxml.jackson.databind;
     exports com.example.anomalydetection.IForest;
+    exports com.example.anomalydetection.viewController;
     opens com.example.anomalydetection.IForest to com.fasterxml.jackson.databind, javafx.fxml;
+    opens com.example.anomalydetection.viewController to com.fasterxml.jackson.databind, javafx.fxml;
 
 }
