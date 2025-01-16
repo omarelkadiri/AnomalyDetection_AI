@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -60,7 +60,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="253.0">
                            <children>
-                              <Button graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Overview     " textFill="#fffefe">
+                              <Button graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openOverView" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Overview     " textFill="#fffefe">
                                  <graphic>
                                     <ImageView fitHeight="49.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -71,9 +71,42 @@
                                  <font>
                                     <Font name="Cantarell Regular" size="20.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                         </HBox>
+                        <Button fx:id="openElasticDashboard" graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openElasticDashboard" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Dashboard" textFill="#fffefe">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/dash2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Cantarell Regular" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Monitoring" textFill="#fffefe">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/monitoring.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Cantarell Regular" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                         <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="253.0">
                            <children>
                               <Button graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Logging     " textFill="#fffefe">
@@ -87,22 +120,9 @@
                                  <font>
                                     <Font name="Cantarell Regular" size="20.0" />
                                  </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="38.0" prefWidth="253.0">
-                           <children>
-                              <Button graphicTextGap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="62.0" prefWidth="262.0" styleClass="button1" text="Monitoring" textFill="#fffefe">
-                                 <graphic>
-                                    <ImageView fitHeight="49.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/monitoring.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Cantarell Regular" size="20.0" />
-                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                         </HBox>
@@ -117,6 +137,9 @@
                            <font>
                               <Font name="Cantarell Regular" size="20.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </VBox>
@@ -127,130 +150,7 @@
             </VBox>
          </left>
          <center>
-            <AnchorPane prefHeight="695.0" prefWidth="986.0" BorderPane.alignment="CENTER">
-               <children>
-                  <BorderPane layoutX="49.0" layoutY="47.0" prefHeight="599.0" prefWidth="951.0">
-                     <top>
-                        <HBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="89.0" prefWidth="951.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="81.0" prefWidth="608.0" styleClass="container">
-                                 <children>
-                                    <Label prefHeight="113.0" prefWidth="174.0" text="Status : " textFill="WHITE">
-                                       <font>
-                                          <Font size="40.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="120.0" prefWidth="106.0" text="Good" textFill="WHITE">
-                                       <font>
-                                          <Font size="40.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                     </top>
-                     <center>
-                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets left="20.0" right="20.0" top="20.0" />
-                           </BorderPane.margin>
-                           <children>
-                              <HBox prefHeight="39.0" prefWidth="911.0">
-                                 <children>
-                                    <Label text="LAST ALERTS" textFill="WHITE">
-                                       <font>
-                                          <Font name="Cantarell Bold" size="25.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <VBox VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="911.0" spacing="10.0" stylesheets="@style.css">
-                                       <children>
-                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="82.0" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <Label fx:id="id" prefHeight="25.0" prefWidth="27.0" text="ID" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="121.0">
-                                             <children>
-                                                <Label fx:id="id1" prefHeight="25.0" prefWidth="109.0" text="Last seen" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="202.0" spacing="10.0" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <ImageView fx:id="severityIcon" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@images/alert_critical.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label fx:id="severity" text="SERVITY" textFill="DARKRED">
-                                                   <font>
-                                                      <Font name="Cantarell Bold" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="208.0" spacing="10.0">
-                                             <children>
-                                                <ImageView fx:id="severityIcon1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@images/details1.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label fx:id="details" text="DTAILS" textFill="DARKBLUE">
-                                                   <font>
-                                                      <Font name="Cantarell Bold" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER" prefHeight="62.0" prefWidth="248.0" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <ImageView fx:id="severityIcon11" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@images/status.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label fx:id="status" prefHeight="25.0" prefWidth="118.0" text="STATUS" textFill="DARKGREEN">
-                                                   <font>
-                                                      <Font name="System Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="487.0" prefWidth="911.0" styleClass="gradient-background">
-                                       <children>
-                                          <ScrollPane prefHeight="451.0" prefWidth="931.0" styleClass="gradient-background">
-                                             <content>
-                                                <VBox fx:id="alertLayout" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="906.0" spacing="20.0" styleClass="gradient-background">
-                                                   <padding>
-                                                      <Insets bottom="5.0" left="10.0" right="10.0" top="15.0" />
-                                                   </padding>
-                                                </VBox>
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </center>
-                  </BorderPane>
-               </children>
+            <AnchorPane fx:id="container" prefHeight="695.0" prefWidth="986.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>

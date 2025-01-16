@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="button1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anomalydetection.viewController.AlertDetailsController">
+<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="465.0" prefWidth="581.0" styleClass="button1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anomalydetection.viewController.AlertDetailsController">
    <children>
-      <VBox layoutY="-5.0" prefHeight="400.0" prefWidth="447.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="63.0" layoutY="22.0" prefHeight="446.0" prefWidth="539.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="11.0">
          <children>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="447.0">
                <children>

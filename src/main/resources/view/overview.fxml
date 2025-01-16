@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="599.0" prefWidth="951.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anomalydetection.viewController.OverviewController">
+   <top>
+      <HBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="89.0" prefWidth="951.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="81.0" prefWidth="608.0" styleClass="container">
+               <children>
+                  <Label prefHeight="113.0" prefWidth="174.0" text="Status : " textFill="WHITE">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="status" prefHeight="120.0" prefWidth="106.0" text="Good" textFill="WHITE">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="911.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="32.0" prefWidth="286.0" text="LAST ALERTS" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Cantarell Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="searchBar" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" prefWidth="315.0" promptText="Search " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <ComboBox fx:id="filterBySeverity" maxHeight="-Infinity" minHeight="-Infinity" onAction="#handleSeverityFilter" prefHeight="34.0" prefWidth="131.0" promptText="Servity" styleClass="gradient-background-white" />
+                  <ComboBox fx:id="filterByState" maxHeight="-Infinity" minHeight="-Infinity" onAction="#handleStateFilter" prefHeight="34.0" prefWidth="119.0" promptText="State" styleClass="gradient-background-white" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="415.0" prefWidth="911.0" style="-fx-border-color: white;" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="911.0" style="-fx-border-color: white;" stylesheets="@style.css">
+                     <children>
+                        <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="82.0" style="-fx-border-color: white;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="id" prefHeight="25.0" prefWidth="27.0" text="ID" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="121.0" style="-fx-border-color: white;">
+                           <children>
+                              <Label fx:id="id1" prefHeight="25.0" prefWidth="109.0" text="Last seen" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="202.0" spacing="10.0" style="-fx-border-color: white;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="severityIcon" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/alert_critical.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="severity" text="SERVITY" textFill="DARKRED">
+                                 <font>
+                                    <Font name="Cantarell Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="208.0" spacing="10.0" style="-fx-border-color: white;">
+                           <children>
+                              <ImageView fx:id="severityIcon1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/details1.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="details" text="DTAILS" textFill="DARKBLUE">
+                                 <font>
+                                    <Font name="Cantarell Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="60.0" prefWidth="270.0" style="-fx-border-color: white;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="severityIcon11" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/status.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="state" prefHeight="25.0" prefWidth="118.0" text="STATE" textFill="DARKGREEN">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="910.0" styleClass="gradient-background">
+                     <children>
+                        <ScrollPane prefHeight="345.0" prefWidth="947.0" styleClass="gradient-background">
+                           <content>
+                              <VBox fx:id="alertLayout" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="906.0" spacing="20.0" styleClass="gradient-background">
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
