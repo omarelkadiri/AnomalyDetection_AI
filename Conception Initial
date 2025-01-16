@@ -1,0 +1,67 @@
+classDiagram
+    class MainApplication {
+        -Stage primaryStage
+        +start(Stage stage)
+        -initializeUI()
+        -setupControllers()
+    }
+
+    class UIController {
+        -DashboardView dashboard
+        -MonitoringView monitoring
+        -AnalyticsView analytics
+        +initialize()
+        +updateViews()
+    }
+
+    class ElasticsearchService {
+        -RestHighLevelClient client
+        -String indexPattern
+        +fetchData(TimeRange range)
+        +queryLogs(SearchCriteria criteria)
+        +getAnomalyData()
+    }
+
+    class MLService {
+        -RandomForest classifier
+        -DataPreprocessor preprocessor
+        +trainModel(Dataset data)
+        +detectAnomalies(LogData logs)
+        +evaluateModel()
+    }
+
+    class DataPreprocessor {
+        +normalizeData(RawData data)
+        +extractFeatures(LogEntry log)
+        +createTrainingSet()
+    }
+
+    class MonitoringService {
+        -AlertManager alertManager
+        +startMonitoring()
+        +processNewLogs()
+        +generateAlerts()
+    }
+
+    class DashboardView {
+        -Charts charts
+        -Tables tables
+        +updateVisualizations()
+        +displayAlerts()
+    }
+
+    class Model {
+        -LogEntry[] logs
+        -AnomalyResult[] anomalies
+        +updateData()
+        +getStatistics()
+    }
+
+    MainApplication --> UIController
+    UIController --> DashboardView
+    UIController --> MonitoringService
+    MonitoringService --> ElasticsearchService
+    MonitoringService --> MLService
+    MLService --> DataPreprocessor
+    DataPreprocessor --> ElasticsearchService
+    DashboardView --> Model
