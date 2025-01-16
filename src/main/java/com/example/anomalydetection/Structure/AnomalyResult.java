@@ -19,9 +19,6 @@ public class AnomalyResult {
     // Constructeur par défaut pour Jackson
     public AnomalyResult() {}
 
-    public AnomalyResult(LogEntry logEntry, double v) {
-    }
-
     // Getters et Setters
     public LogEntry getLogEntry() { return logEntry; }
     public void setLogEntry(LogEntry logEntry) { this.logEntry = logEntry; }

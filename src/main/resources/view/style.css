@@ -156,6 +156,10 @@
     -fx-node-orientation: bottom-to-top;
 }
 
+.gradient-background-white {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #ffffff, #333333);
+}
+
 
 
 
