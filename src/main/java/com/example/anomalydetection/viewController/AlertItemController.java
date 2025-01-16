@@ -54,8 +54,8 @@ public class AlertItemController {
             case HIGH -> severityIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/view/images/alert_high.png"))));
             case CRITICAL -> severityIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/view/images/alert_critical.png"))));
         };
-        long secondsDifference = Duration.between(startTime, alert.getTimestamp()).getSeconds();
-        lastSeen.setText(Long.toString(secondsDifference));
+        //long secondsDifference = Duration.between(startTime, alert.getTimestamp()).getSeconds();
+        //lastSeen.setText(Long.toString(secondsDifference));
         // stateComboBox.s
     }
 

@@ -12,7 +12,7 @@ public class AnomalyDetectionAPP extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AnomalyDetectionAPP.class.getResource("/view/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1314, 800);
-        stage.setTitle("Hello!");
+        stage.setTitle("Dashboard");
         stage.setScene(scene);
         stage.show();
     }

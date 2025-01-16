@@ -54,7 +54,6 @@
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1E3A8B, #60A5F0);
     -fx-opacity: 80%;
 }
 

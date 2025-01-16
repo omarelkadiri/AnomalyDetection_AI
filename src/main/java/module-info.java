@@ -10,6 +10,7 @@ module com.example.anomalydetection {
     requires org.apache.httpcomponents.httpclient;
     //requires weka.stable;
     requires java.mail;
+    requires java.desktop;
 
     opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;
     exports com.example.anomalydetection;
