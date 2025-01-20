@@ -46,6 +46,7 @@ public class AlertManager {
         );
 
         Alert alert = new Alert(anomaly, severity, description);
+        //System.out.println("Test creation alerte : " + alert.getDetails());  // test valid : s'affiche correctement
         notifyObservers(alert);
     }
 }

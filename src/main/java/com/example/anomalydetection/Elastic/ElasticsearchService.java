@@ -32,7 +32,7 @@ public class ElasticsearchService {
                     "query": {
                         "range": {
                             "@timestamp": {
-                                "gte": "now-2h",
+                                "gte": "now-2m",
                                 "lt": "now"
                             }
                         }

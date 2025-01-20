@@ -1,7 +1,9 @@
 package com.example.anomalydetection.viewController;
 
-import com.example.anomalydetection.Alerting.Alert;
-import com.example.anomalydetection.Alerting.AlertObserver;
+import com.example.anomalydetection.Alerting.*;
+import com.example.anomalydetection.Elastic.ElasticsearchService;
+import com.example.anomalydetection.IForest.PretrainedModelService;
+import com.example.anomalydetection.Service.AnomalyDetectionService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.stream.Collectors;
 
 public class OverviewController implements Initializable, AlertObserver {
@@ -32,23 +36,36 @@ public class OverviewController implements Initializable, AlertObserver {
     private List<Alert> alerts = new ArrayList<>();
     private Map<String, List<Alert>> filteredAlerts = new HashMap<>();
 
+    private AnomalyDetectionService detectionService = new AnomalyDetectionService();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // alerts = TestUI.getAlerts();
-        alerts = generateFakeAlerts();
+         //alerts = TestUI.getAlerts();
+        //alerts = generateFakeAlerts();
         filteredAlerts = getFilteredAlerts();
         System.out.println(filteredAlerts.values());
         displayStatus();
         filterBySeverity.getItems().addAll("ALL", Alert.Severity.CRITICAL.toString(), Alert.Severity.HIGH.toString(), Alert.Severity.MEDIUM.toString(),Alert.Severity.LOW.toString());
         filterByState.getItems().addAll("TREATED", "NOT TREATED");
         displayAlerts(alerts);
+
+        detectionService.getAlertManager().attach(this);
+        detectionService.start();
+
+        // Add shutdown hook to stop the service when the application closes
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            detectionService.stop();
+        }));
     }
+
 
     @Override
     public void update(Alert newAlert) {
         alerts.addFirst(newAlert);
+        System.out.println("update dashboard test : "+newAlert.getDetails());
         filteredAlerts = getFilteredAlerts();
         displayStatus();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/alert-item.fxml"));
         try {
             HBox hbox = fxmlLoader.load();
@@ -63,7 +80,7 @@ public class OverviewController implements Initializable, AlertObserver {
     }
 
     private void displayAlerts(List<Alert> filteredAlerts) {
-        alertLayout.getChildren().clear();
+       alertLayout.getChildren().clear();
         filteredAlerts.forEach(alert -> {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/alert-item.fxml"));
             try {
@@ -81,6 +98,8 @@ public class OverviewController implements Initializable, AlertObserver {
 
     private Map<String, List<Alert>> getFilteredAlerts() {
         Map<String, List<Alert>> filteredAlerts = new HashMap<>();
+
+
         filteredAlerts.put("ALL", alerts);
 
         List<Alert> treatedAlerts = alerts.stream()

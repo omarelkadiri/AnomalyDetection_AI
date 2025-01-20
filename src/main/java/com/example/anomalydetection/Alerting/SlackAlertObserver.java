@@ -6,7 +6,7 @@ import java.net.URL;
 
 public class SlackAlertObserver implements AlertObserver {
 
-    private static final String SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+    private static final String SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
     @Override
     public void update(Alert alert) {
@@ -24,8 +24,7 @@ public class SlackAlertObserver implements AlertObserver {
 
             // Structure du payload JSON
             String payload = String.format(
-                    "{\"text\": \"Alerte de Système AI Suri : %s\"}",
-                    alert.getSeverity(),
+                    "{\"text\": \"Alerte de Système AI Suri :  %s \"}",
                     alert.getDetails()
             );
 

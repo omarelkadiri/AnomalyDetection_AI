@@ -1,6 +1,8 @@
 package com.example.anomalydetection.Service;
 
 import com.example.anomalydetection.Alerting.AlertManager;
+import com.example.anomalydetection.Alerting.EmailAlertObserver;
+import com.example.anomalydetection.Alerting.SlackAlertObserver;
 import com.example.anomalydetection.Elastic.ElasticsearchService;
 import com.example.anomalydetection.IForest.IPv6Filter;
 import com.example.anomalydetection.IForest.PretrainedModelService;
@@ -37,6 +39,33 @@ public class AnomalyDetectionService {
         this.scheduler = Executors.newScheduledThreadPool(1);
         this.totalLogsProcessed = new AtomicInteger(0);
         this.totalAnomaliesDetected = new AtomicInteger(0);
+    }
+
+    public AnomalyDetectionService() {
+        modelService = new PretrainedModelService();
+        esService = new ElasticsearchService();
+        alertManager = new AlertManager();
+        scheduler = Executors.newScheduledThreadPool(1);
+        totalLogsProcessed = new AtomicInteger(0);
+        totalAnomaliesDetected = new AtomicInteger(0);
+
+
+        // Configuration des observateurs
+        EmailAlertObserver emailObserver = new EmailAlertObserver();
+        SlackAlertObserver slackObserver = new SlackAlertObserver();
+
+        alertManager.attach(emailObserver);
+        alertManager.attach(slackObserver);
+    }
+
+
+    private void displayCurrentStatsConsole() {
+        AnomalyDetectionService.AnomalyStats stats = getAnomalyStats();
+        System.out.println("\n=== Statistiques de monitoring (" +
+                java.time.LocalDateTime.now() + ") ===");
+        System.out.println("Logs traités: " + stats.getTotalLogsProcessed());
+        System.out.println("Anomalies détectées: " + stats.getTotalAnomaliesDetected());
+        System.out.println("Dernier traitement: " + stats.getLastProcessingTime());
     }
 
     public void start() {
@@ -100,12 +129,16 @@ public class AnomalyDetectionService {
     }
 
     private void processAnomalyResults(List<AnomalyResult> anomalyResults) {
-        long newAnomalies = anomalyResults.stream()
-                .filter(AnomalyResult::isAnomaly)
-                .peek(this::createAlertForAnomaly)
-                .count();
+        int newAnomaliesDetected = 0;
+        for (AnomalyResult anomalyResult : anomalyResults) {
+            if (!anomalyResult.isAnomaly()){        // j'ai inversé la condition juste pour avoir beaucoup des alertes à fin de tester la création des alertes (les anomalies sont rares).
+              //  System.out.println(anomalyResult);  // test valide : s'affiche correctement
+                createAlertForAnomaly(anomalyResult);
+                newAnomaliesDetected++;
+            }
+        }
 
-        totalAnomaliesDetected.addAndGet((int) newAnomalies);
+        totalAnomaliesDetected.addAndGet(newAnomaliesDetected);
     }
 
     private void createAlertForAnomaly(AnomalyResult anomalyResult) {
@@ -158,5 +191,9 @@ public class AnomalyDetectionService {
                     lastProcessingTime
             );
         }
+    }
+
+    public AlertManager getAlertManager() {
+        return alertManager;
     }
 }

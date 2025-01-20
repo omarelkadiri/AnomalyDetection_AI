@@ -6,7 +6,7 @@ import java.net.URL;
 
 public class SlackAlertSender {
 
-    private static final String SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+    private static final String SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
     public static void main(String[] args) {
 

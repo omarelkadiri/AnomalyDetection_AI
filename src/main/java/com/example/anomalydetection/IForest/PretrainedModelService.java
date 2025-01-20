@@ -85,6 +85,7 @@ public class PretrainedModelService {
             ));
         }
 
+       // System.out.println(anomalyResults); //  s'affiche correctement
         return anomalyResults;
     }
 

@@ -44,7 +44,7 @@ public class DashboardController implements Initializable {
     public void openElasticDashboard() throws IOException {
         new Thread(() -> {
             try {
-                URI uri = new URI("http://192.168.1.12:5601/app/dashboards");
+                URI uri = new URI("http://localhost:5601/app/dashboards");
                 Desktop.getDesktop().browse(uri);
             } catch (Exception e) {
                 e.printStackTrace();
