@@ -12,7 +12,6 @@ public class Alert {
         HIGH,
         CRITICAL
     }
-
     private AnomalyResult anomaly;
     private Severity severity;
     private LocalDateTime timestamp;

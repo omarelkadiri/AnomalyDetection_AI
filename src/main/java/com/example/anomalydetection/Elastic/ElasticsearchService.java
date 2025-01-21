@@ -79,8 +79,6 @@ public class ElasticsearchService {
             return logEntries;
         }
 
-
-
     public void close() {
         esClientSingleton.close();
     }

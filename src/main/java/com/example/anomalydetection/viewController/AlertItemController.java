@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class AlertItemController {
-    private static int id_alert = 1;
+    private int id_alert ;
     private LocalDateTime startTime;
 
     @FXML
@@ -38,9 +38,13 @@ public class AlertItemController {
         this.startTime = startTime;
     }
 
+    public void setId_alert(int id_alert) {
+        this.id_alert = id_alert;
+        id.setText(String.valueOf(id_alert));
+    }
+
     public void setData(Alert alert) {
         this.alert = alert;
-        id.setText(String.valueOf(id_alert++));
         severity.setText(alert.getSeverity().toString());
         switch(alert.getSeverity()) {
             case LOW -> severity.setStyle("-fx-text-fill: #00FF00;");
@@ -71,6 +75,8 @@ public class AlertItemController {
             controller.setDetails(alert.getDetails());
 
             Stage stage = new Stage();
+            stage.setWidth(581);
+            stage.setHeight(465);
             stage.setTitle("Alert details");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));

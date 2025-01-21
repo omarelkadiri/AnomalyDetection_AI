@@ -1,0 +1,34 @@
+flowchart TD
+    subgraph subGraph0["Collecte et Stockage"]
+        A2["Elasticsearch"]
+        A1["Logs Réseau"]
+    end
+    subgraph subGraph1["Traitement et Détection"]
+        B2["AnomalyDetectionService"]
+        B1["ElasticsearchService"]
+        C1["PretrainedModelService"]
+        C2["Isolation Forest"]
+    end
+    subgraph subGraph2["Gestion des Alertes et Interface"]
+        D2["DashboardView"]
+        D1["AlertManager"]
+        D3["EmailAlertObserver"]
+        D4["SlackAlertObserver"]
+        E1["Interface JavaFX"]
+        E2["Dashboard Utilisateur"]
+    end
+    A1 -- Ingestion --> A2
+    A2 -- Extraction des logs --> B1
+    B1 -- Prétraitement --> B2
+    B2 -- Envoi des logs --> C1
+    C1 -- Prédiction d'anomalie --> C2
+    C2 -- Résultats d'anomalie --> B2
+    B2 -- Création d'alertes --> D1
+    D1 -- Notifier observateurs --> D2
+    D1 -- "Envoyer e-mail" --> D3
+    D1 -- "Envoyer message" --> D4
+    D2 -- Mise à jour UI --> E1
+    E1 -- Afficher logs et anomalies --> E2
+
+
+

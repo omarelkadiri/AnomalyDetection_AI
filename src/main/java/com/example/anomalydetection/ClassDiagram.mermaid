@@ -1,103 +1,108 @@
 classDiagram
+    direction TB
     class MainApplication {
-        -Stage primaryStage
-        +start(Stage stage)
-        -initializeUI()
+        - Stage primaryStage
+        + start(Stage stage)
+        - initializeUI()
     }
-    
+
     class UIController {
-        -DashboardView dashboard
-        -MonitoringView monitoring
-        +initialize()
-        +updateViews()
+        - DashboardView dashboard
+        - AnomalyDetectionService detectionService
+        + initialize()
+        + updateViews()
     }
-    
- class ElasticsearchService {
-        -ElasticsearchClientSingleton esClientSingleton
-        +searchLogsFromLastMinute(): String
-        +close(): void
+
+    class ElasticsearchService {
+        - ElasticsearchClientSingleton esClientSingleton
+        + searchLogsFromLastMinute() String
+        + close() void
     }
 
     class ElasticsearchClientSingleton {
-        -static ElasticsearchClientSingleton instance
-        -ElasticsearchClient client
-        -RestClient restClient
-        +getInstance(): ElasticsearchClientSingleton
-        +getClient(): ElasticsearchClient
-        +executeSearchRequest(String endpoint, String jsonQuery): String
-        +close(): void
+        - static ElasticsearchClientSingleton instance
+        - ElasticsearchClient client
+        - RestClient restClient
+        + getInstance() ElasticsearchClientSingleton
+        + getClient() ElasticsearchClient
+        + executeSearchRequest()
+        + close() void
     }
-    
+
     class PretrainedModelService {
-        - String DetectionModelScript
+        - String DetectionModelPythonScript
         - ObjectMapper objectMapper
         - Class PythonPredictionResult
-        +loadModel()
-        +predictAnomaly(LogData log)
-        +batchPredict(List~LogData~ logs)
-    }
-    
-
-
-    class AlertManager {
-        -List~AlertObserver~ observers
-        +attach(AlertObserver observer)
-        +detach(AlertObserver observer)
-        +notifyObservers(Alert alert)
-        +createAlert(AnomalyResult anomaly)
+        + loadModel()
+        + predictAnomaly(LogData log)
+        + batchPredict(List logs)
     }
 
     class AlertObserver {
-        <<interface>>
-        +update(Alert alert)
+        + update(Alert alert)
     }
 
     class DashboardView {
-        -Charts charts
-        -AnomalyTable anomalyTable
-        +updateVisualizations()
-        +displayAlerts()
-        +update(Alert alert)
+        - AnomalyTable anomalyTable
+        + updateVisualizations()
+        + displayAlerts()
+        + update(Alert alert)
     }
 
     class EmailAlertObserver {
-        -EmailService emailService
-        +update(Alert alert)
-        -sendEmailAlert(Alert alert)
+        - EmailService emailService
+        + update(Alert alert)
+        - sendEmailAlert(Alert alert)
     }
 
     class Alert {
-        -AnomalyResult anomaly
-        -String severity
-        -LocalDateTime timestamp
-        -String description
-        +getDetails()
+        - AnomalyResult anomaly
+        - String severity
+        - LocalDateTime timestamp
+        - String description
+        + getDetails()
+    }
+
+    class SlackAlertObserver {
+        - String SLACK_WEBHOOK_URL
+        + update(Alert alert)
+        - sendSlackAlert(Alert alert)
     }
 
     class AnomalyDetectionService {
-        -PretrainedModelService modelService
-        -ElasticsearchService esService
-        -AlertManager alertManager
-        +detectAnomalies(TimeRange range)
-        +processNewLogs()
-        +getAnomalyStats()
+        - PretrainedModelService modelService
+        - ElasticsearchService esService
+        - AlertManager alertManager
+        + detectAnomalies(TimeRange range)
+        + processNewLogs()
+        + getAnomalyStats()
     }
 
     class LogEntry {
-        -String sourceIp
-        -String destIp
-        -int sourcePort
-        -int destPort
-        -long bytes
-        -String direction
+        - String sourceIp
+        - String destIp
+        - int sourcePort
+        - int destPort
+        - long bytes
+        - String direction
     }
-    
+
     class AnomalyResult {
-        -LogEntry logEntry
-        -boolean isAnomaly
-        -double anomalyScore
-        -LocalDateTime timestamp
+        - LogEntry logEntry
+        - boolean isAnomaly
+        - double anomalyScore
+        - LocalDateTime timestamp
     }
+
+    class AlertManager {
+        - List observers
+        + attach(AlertObserver observer)
+        + detach(AlertObserver observer)
+        + notifyObservers(Alert alert)
+        + createAlert(AnomalyResult anomaly)
+    }
+
+    <<interface>> AlertObserver
 
     MainApplication --> UIController
     UIController --> DashboardView
@@ -109,6 +114,7 @@ classDiagram
     AlertManager --> "0..*" AlertObserver
     DashboardView ..|> AlertObserver
     EmailAlertObserver ..|> AlertObserver
+    SlackAlertObserver ..|> AlertObserver
     AlertManager --> Alert
     Alert --> AnomalyResult
     DashboardView ..> AnomalyResult

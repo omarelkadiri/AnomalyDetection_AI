@@ -29,18 +29,6 @@ public class AnomalyDetectionService {
     private final AtomicInteger totalAnomaliesDetected;
     private LocalDateTime lastProcessingTime;
 
-    public AnomalyDetectionService(
-            PretrainedModelService modelService,
-            ElasticsearchService esService,
-            AlertManager alertManager) {
-        this.modelService = modelService;
-        this.esService = esService;
-        this.alertManager = alertManager;
-        this.scheduler = Executors.newScheduledThreadPool(1);
-        this.totalLogsProcessed = new AtomicInteger(0);
-        this.totalAnomaliesDetected = new AtomicInteger(0);
-    }
-
     public AnomalyDetectionService() {
         modelService = new PretrainedModelService();
         esService = new ElasticsearchService();
@@ -56,6 +44,18 @@ public class AnomalyDetectionService {
 
         alertManager.attach(emailObserver);
         alertManager.attach(slackObserver);
+    }
+
+    public AnomalyDetectionService(
+            PretrainedModelService modelService,
+            ElasticsearchService esService,
+            AlertManager alertManager) {
+        this.modelService = modelService;
+        this.esService = esService;
+        this.alertManager = alertManager;
+        this.scheduler = Executors.newScheduledThreadPool(1);
+        this.totalLogsProcessed = new AtomicInteger(0);
+        this.totalAnomaliesDetected = new AtomicInteger(0);
     }
 
 
@@ -131,7 +131,7 @@ public class AnomalyDetectionService {
     private void processAnomalyResults(List<AnomalyResult> anomalyResults) {
         int newAnomaliesDetected = 0;
         for (AnomalyResult anomalyResult : anomalyResults) {
-            if (!anomalyResult.isAnomaly()){        // j'ai inversé la condition juste pour avoir beaucoup des alertes à fin de tester la création des alertes (les anomalies sont rares).
+            if (anomalyResult.isAnomaly()){
               //  System.out.println(anomalyResult);  // test valide : s'affiche correctement
                 createAlertForAnomaly(anomalyResult);
                 newAnomaliesDetected++;
