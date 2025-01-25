@@ -1,6 +1,7 @@
 package com.example.anomalydetection.Service;
 
 import com.example.anomalydetection.Alerting.AlertManager;
+import com.example.anomalydetection.Alerting.ElasticAlertObserver;
 import com.example.anomalydetection.Alerting.EmailAlertObserver;
 import com.example.anomalydetection.Alerting.SlackAlertObserver;
 import com.example.anomalydetection.Elastic.ElasticsearchService;
@@ -41,7 +42,9 @@ public class AnomalyDetectionService {
         // Configuration des observateurs
         EmailAlertObserver emailObserver = new EmailAlertObserver();
         SlackAlertObserver slackObserver = new SlackAlertObserver();
+        ElasticAlertObserver elasticObserver = new ElasticAlertObserver();
 
+        alertManager.attach(elasticObserver);
         alertManager.attach(emailObserver);
         alertManager.attach(slackObserver);
     }

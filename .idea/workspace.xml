@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e73c7081-2fe9-4b74-8703-b03204715dc6" name="Changes" comment="Finalisation du projet et Test général">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Alerting/ElasticAlertObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnomalyDetection_AI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Alerting/Alert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Alerting/Alert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Elastic/ElasticsearchClientSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Elastic/ElasticsearchClientSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Elastic/ElasticsearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Elastic/ElasticsearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Service/AnomalyDetectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Service/AnomalyDetectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;omarelkadiri&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/omarelkadiri/AnomalyDetection_AI.git&quot;,
+    &quot;accountId&quot;: &quot;52d9ac16-d139-475c-b7f1-a3d14bfa9c07&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/co/elastic/clients/elasticsearch-java/8.17.0/elasticsearch-java-8.17.0.jar!/co/elastic/clients/elasticsearch/core/SearchRequest.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2rRReJ61tALWdxNu1yUWQMGMtYD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AnomalyDetectionAPP.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AnomalyDetectionApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AnomalyDetectionServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AnomalyDetectionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ElasticsearchResponseFilter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EmailSender.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PeriodicAnomalyDetectionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PredectionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RealTimeLogAnalysisTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SlackAlertSender.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestElastic2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestElasticConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestElasticConnection2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestElasticConnectionSimple.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestElasticsearchRequest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestSSL.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WekaTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.predection.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/omar/Documents/ENSET/S3/JavaProjet/AnomalyDetection/src/main/java/com/example/anomalydetection/IForest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/IForest" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/IForest" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AnomalyDetectionAPP">
+    <configuration name="AnomalyDetectionAPP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.anomalydetection.AnomalyDetectionAPP" />
+      <module name="AnomalyDetection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.anomalydetection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.anomalydetection.Test.EmailSender" />
+      <module name="AnomalyDetection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.anomalydetection.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PeriodicAnomalyDetectionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.anomalydetection.Test.PeriodicAnomalyDetectionTest" />
+      <module name="AnomalyDetection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.anomalydetection.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SlackAlertSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.anomalydetection.Test.SlackAlertSender" />
+      <module name="AnomalyDetection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.anomalydetection.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.anomalydetection.Test.TestUI" />
+      <module name="AnomalyDetection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.anomalydetection.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.AnomalyDetectionAPP" />
+      <item itemvalue="Application.TestUI" />
+      <item itemvalue="Application.EmailSender" />
+      <item itemvalue="Application.PeriodicAnomalyDetectionTest" />
+      <item itemvalue="Application.SlackAlertSender" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AnomalyDetectionAPP" />
+        <item itemvalue="Application.SlackAlertSender" />
+        <item itemvalue="Application.PeriodicAnomalyDetectionTest" />
+        <item itemvalue="Application.TestUI" />
+        <item itemvalue="Application.EmailSender" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e73c7081-2fe9-4b74-8703-b03204715dc6" name="Changes" comment="" />
+      <created>1736520001483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736520001483</updated>
+      <workItem from="1736520002714" duration="311000" />
+      <workItem from="1736520323922" duration="6110000" />
+      <workItem from="1736528536688" duration="9033000" />
+      <workItem from="1736580676559" duration="10000" />
+      <workItem from="1736580718553" duration="7191000" />
+      <workItem from="1736671713086" duration="222000" />
+      <workItem from="1736671955369" duration="757000" />
+      <workItem from="1736672731583" duration="1365000" />
+      <workItem from="1736674127491" duration="286000" />
+      <workItem from="1736689751314" duration="9962000" />
+      <workItem from="1736720190827" duration="592000" />
+      <workItem from="1736721166879" duration="1063000" />
+      <workItem from="1736753638984" duration="12348000" />
+      <workItem from="1736768903719" duration="14000" />
+      <workItem from="1736768964962" duration="21621000" />
+      <workItem from="1736839712141" duration="1414000" />
+      <workItem from="1736952043761" duration="8713000" />
+      <workItem from="1736977390605" duration="7801000" />
+      <workItem from="1737017323794" duration="352000" />
+      <workItem from="1737020087985" duration="1011000" />
+      <workItem from="1737021108898" duration="1308000" />
+      <workItem from="1737029065152" duration="710000" />
+      <workItem from="1737213503395" duration="1612000" />
+      <workItem from="1737322379200" duration="391000" />
+      <workItem from="1737323194784" duration="5014000" />
+      <workItem from="1737328314098" duration="227000" />
+      <workItem from="1737383103552" duration="9080000" />
+      <workItem from="1737406409304" duration="6293000" />
+      <workItem from="1737457352016" duration="14298000" />
+      <workItem from="1737496256793" duration="2847000" />
+      <workItem from="1737502560500" duration="435000" />
+      <workItem from="1737503978042" duration="137000" />
+      <workItem from="1737504126200" duration="547000" />
+      <workItem from="1737622806912" duration="59000" />
+      <workItem from="1737799351971" duration="8016000" />
+    </task>
+    <task id="LOCAL-00001" summary="1. Connexion à elasticsearch (base de donné du SIEM)">
+      <option name="closed" value="true" />
+      <created>1736541800147</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736541800147</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1. Connexion à elasticsearch (base de donné du SIEM)">
+      <option name="closed" value="true" />
+      <created>1736541812148</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736541812148</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1. La connexion à Elasticsearch V2">
+      <option name="closed" value="true" />
+      <created>1736547456159</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736547456159</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2. Class ElasticsearchService + Entrainement du modèle IForest + Nouvelle Conception + Test">
+      <option name="closed" value="true" />
+      <created>1736692304796</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736692304796</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2. Class ElasticsearchService + Entrainement du modèle IForest + Nouvelle Conception + Test">
+      <option name="closed" value="true" />
+      <created>1736692325715</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736692325715</updated>
+    </task>
+    <task id="LOCAL-00006" summary="3. L'ajout de : Structeur des logs + 1ere prédiction + Structeur des prédiction + Test">
+      <option name="closed" value="true" />
+      <created>1736759399913</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736759399913</updated>
+    </task>
+    <task id="LOCAL-00007" summary="3. La modification de la Conception">
+      <option name="closed" value="true" />
+      <created>1736761652313</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736761652313</updated>
+    </task>
+    <task id="LOCAL-00008" summary="4. Filtrage des réponses d'elasticseach +  Prediction périodique">
+      <option name="closed" value="true" />
+      <created>1736790293875</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1736790293875</updated>
+    </task>
+    <task id="LOCAL-00009" summary="4. L'ajout de : Système des alertes +  CLasse métier AnomalyDetectionService + Test : prédiction périodique des anomalies">
+      <option name="closed" value="true" />
+      <created>1736840445043</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736840445044</updated>
+    </task>
+    <task id="LOCAL-00010" summary="4. L'ajout de l'observateur Slack pour l'envoit des alertes">
+      <option name="closed" value="true" />
+      <created>1736983553252</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736983553252</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update">
+      <option name="closed" value="true" />
+      <created>1737022140912</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1737022140912</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Test d'affichage des alertes.">
+      <option name="closed" value="true" />
+      <created>1737393756633</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1737393756633</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Finalisation du projet et Test général">
+      <option name="closed" value="true" />
+      <created>1737502672571</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737502672571</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1. Connexion à elasticsearch (base de donné du SIEM)" />
+    <MESSAGE value="1. La connexion à Elasticsearch V2" />
+    <MESSAGE value="2. Class ElasticsearchService + Entrainement du modèle IForest + Nouvelle Conception + Test" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="3. Structeur des logs" />
+    <MESSAGE value="3. L'ajout de : Structeur des logs + 1ere prédiction + Structeur des prédiction + Test" />
+    <MESSAGE value="3. La modification de la Conception" />
+    <MESSAGE value="4. Filtrage des réponses d'elasticseach +  Prediction périodique" />
+    <MESSAGE value="4. L'ajout de : Système des alertes +  CLasse métier AnomalyDetectionService + Test : prédiction périodique des anomalies" />
+    <MESSAGE value="4. L'ajout de l'observateur Slack pour l'envoit des alertes" />
+    <MESSAGE value="update" />
+    <MESSAGE value="Test d'affichage des alertes." />
+    <MESSAGE value="Finalisation du projet et Test général" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalisation du projet et Test général" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/anomalydetection/IForest/IPv6Filter.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/anomalydetection/IForest/IPv6Filter.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/anomalydetection/IForest/IPv6Filter.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/anomalydetection/Service/AnomalyDetectionService.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

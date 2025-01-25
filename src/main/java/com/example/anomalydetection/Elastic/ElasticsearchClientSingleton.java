@@ -4,6 +4,10 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.example.anomalydetection.Alerting.Alert;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.elasticsearch.client.Request;
@@ -13,6 +17,7 @@ import org.elasticsearch.client.RestClient;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
+import com.fasterxml.jackson.databind.MapperFeature;
 
 public class ElasticsearchClientSingleton {
     private static ElasticsearchClientSingleton instance;
@@ -84,6 +89,52 @@ public class ElasticsearchClientSingleton {
                     .collect(Collectors.joining("\n"));
         } catch (Exception e) {
             throw new RuntimeException("Erreur lors de l'exécution de la requête Elasticsearch", e);
+        }
+    }
+
+    public void storeAlertInIndex(Alert alert) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper()
+                    .registerModule(new JavaTimeModule())
+                    //.configure(MapperFeature.PROPAGATE_TRANSIENT_HINT, false)
+                    .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+
+            // Generate index name with current date
+            String indexName = String.format("alerts-ai-syslog-ipv4-%s",
+                    new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()));
+
+            // Convert alert to JSON
+            String jsonAlert = objectMapper.writeValueAsString(alert);
+
+            // Create index if it doesn't exist
+            if ( !indexIsExist(indexName) ){
+                Request createIndexRequest = new Request("PUT", "/" + indexName);
+                restClient.performRequest(createIndexRequest);
+            }
+
+
+            // Index the alert document
+            Request indexRequest = new Request("POST", "/" + indexName + "/_doc");
+            indexRequest.setEntity(new org.apache.http.entity.StringEntity(jsonAlert,
+                    org.apache.http.entity.ContentType.APPLICATION_JSON));
+
+            Response response = restClient.performRequest(indexRequest);
+        } catch (Exception e) {
+           // throw new RuntimeException("Erreur lors du stockage de l'alerte dans Elasticsearch", e);
+            e.printStackTrace();
+        }
+    }
+
+    public boolean indexIsExist(String indexName) {
+        try {
+            Request request = new Request("HEAD", "/" + indexName);
+            Response response = restClient.performRequest(request);
+
+            // Check response status
+            return (response.getStatusLine().getStatusCode() == 200);
+        } catch (Exception e) {
+            System.err.println("Error checking index: " + e.getMessage());
+            return false;
         }
     }
 

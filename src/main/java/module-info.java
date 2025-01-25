@@ -6,11 +6,12 @@ module com.example.anomalydetection {
     requires elasticsearch.java;
     requires jakarta.json;
     requires elasticsearch.rest.client;
-    requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
     //requires weka.stable;
     requires java.mail;
     requires java.desktop;
+    requires com.fasterxml.jackson.datatype.jsr310;
+    requires com.fasterxml.jackson.databind;
 
     opens com.example.anomalydetection to javafx.fxml, com.fasterxml.jackson.databind;
     exports com.example.anomalydetection;
@@ -23,5 +24,6 @@ module com.example.anomalydetection {
     exports com.example.anomalydetection.viewController;
     opens com.example.anomalydetection.IForest to com.fasterxml.jackson.databind, javafx.fxml;
     opens com.example.anomalydetection.viewController to com.fasterxml.jackson.databind, javafx.fxml;
+    exports com.example.anomalydetection.Alerting to com.fasterxml.jackson.databind;
 
 }

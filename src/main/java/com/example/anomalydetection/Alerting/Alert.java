@@ -2,10 +2,12 @@ package com.example.anomalydetection.Alerting;
 
 import com.example.anomalydetection.Structure.AnomalyResult;
 import com.example.anomalydetection.Structure.LogEntry;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Alert {
+public class Alert implements Serializable {
     public enum Severity {
         LOW,
         MEDIUM,
@@ -14,9 +16,9 @@ public class Alert {
     }
     private AnomalyResult anomaly;
     private Severity severity;
-    private LocalDateTime timestamp;
-    private String description;
-    private boolean acknowledged;
+    private transient  @JsonIgnore LocalDateTime timestamp;
+    private transient @JsonIgnore String description;
+    private transient @JsonIgnore boolean acknowledged;
 
     // Constructeur
     public Alert(AnomalyResult anomaly, Severity severity, String description) {
@@ -47,7 +49,8 @@ public class Alert {
     public void setAcknowledged(boolean acknowledged) { this.acknowledged = acknowledged; }
 
     // Méthode utilitaire pour générer une description détaillée de l'alerte
-    public String getDetails() {
+    @JsonIgnore
+    public  String getDetails() {
         LogEntry log = anomaly.getLogEntry();
         return String.format(
                 "Alert{severity=%s, timestamp=%s, source=%s:%d, destination=%s:%d, " +

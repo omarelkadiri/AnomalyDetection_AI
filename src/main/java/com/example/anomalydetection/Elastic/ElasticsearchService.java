@@ -1,5 +1,6 @@
 package com.example.anomalydetection.Elastic;
 
+import com.example.anomalydetection.Alerting.Alert;
 import com.example.anomalydetection.Structure.LogEntry;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,5 +82,8 @@ public class ElasticsearchService {
 
     public void close() {
         esClientSingleton.close();
+    }
+    public void storeAlertInElastic(Alert alert){
+        esClientSingleton.storeAlertInIndex(alert);
     }
 }
